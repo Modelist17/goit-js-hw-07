@@ -1,32 +1,13 @@
+const categoriesList = document.getElementById('categories');
+const categoryItems = categoriesList.querySelectorAll('li.item');
 
-// task 6.1:
-const customer = {
-  username: "Mango",
-  balance: 24000,
-  discount: 0.1,
-  orders: ["Burger", "Pizza", "Salad"],
-  // Change code below this line
-  getBalance() {
-    return this.balance;
-  },
-  getDiscount() {
-    return this.discount;
-  },
-  setDiscount(value) {
-    this.discount = value;
-  },
-  getOrders() {
-    return this.orders;
-  },
-  addOrder(cost, order) {
-    this.balance -= cost - cost * this.discount;
-    this.orders.push(order);
-  },
-  // Change code above this line
-};
+// Завдання 1: Порахує та виведе кількість категорій в ul#categories
+console.log(`Total categories: ${categoryItems.length}`);
 
-customer.setDiscount(0.15);
-console.log(customer.getDiscount()); // 0.15
-customer.addOrder(5000, "Steak");
-console.log(customer.getBalance()); // 19750
-console.log(customer.getOrders()); // ["Burger", "Pizza", "Salad", "Steak"]
+// Завдання 2: текст заголовка та кількість елементів
+categoryItems.forEach(categoryItem => {
+  const categoryName = categoryItem.querySelector('h2').textContent;
+  const categoryElements = categoryItem.querySelectorAll('ul li');
+  console.log(`Category: ${categoryName}`);
+  console.log(`Number of elements: ${categoryElements.length}`);
+});

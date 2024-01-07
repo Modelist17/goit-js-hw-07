@@ -1,34 +1,15 @@
-// TASK 6.3:
-class StringBuilder {
-  #value;
+const nameInput = document.getElementById('name-input');
+const nameOutput = document.getElementById('name-output');
 
-  constructor(initialValue) {
-    this.#value = initialValue;
-  }
+nameInput.addEventListener('input', updateName);
 
-  getValue() {
-    return this.#value;
-  }
-
-  padEnd(str) {
-    this.#value += str;
-  }
-
-  padStart(str) {
-    this.#value = str + this.#value;
-  }
-
-  padBoth(str) {
-    this.padStart(str);
-    this.padEnd(str);
+function updateName() {
+  // Очищення значення в інпуті від пробілів по краях
+  const trimmedName = nameInput.value.trim();
+  // Перевірка, чи інпут порожній або містить лише пробіли
+  if (trimmedName === '') {
+    nameOutput.textContent = 'Anonymous';
+  } else {
+    nameOutput.textContent = trimmedName;
   }
 }
-
-const builder = new StringBuilder(".");
-console.log(builder.getValue()); // "."
-builder.padStart("^");
-console.log(builder.getValue()); // "^."
-builder.padEnd("^");
-console.log(builder.getValue()); // "^.^"
-builder.padBoth("=");
-console.log(builder.getValue()); // "=^.^="
